@@ -4,7 +4,7 @@ plugins {
 }
 
 android {
-    namespace 'com.example.navigation'
+    namespace 'com.example.categories'
     compileSdk 33
 
     defaultConfig {
@@ -32,18 +32,13 @@ android {
 
 dependencies {
 
-    implementation project(path: ':features:account')
-    implementation project(path: ':features:basket')
-    implementation project(path: ':features:home')
-    implementation project(path: ':features:search')
-    implementation project(path: ':features:categories')
-
     implementation 'androidx.core:core-ktx:1.8.0'
     implementation 'androidx.appcompat:appcompat:1.6.1'
     implementation 'com.google.android.material:material:1.9.0'
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
+
 
     implementation "androidx.navigation:navigation-fragment-ktx:2.6.0"
     implementation "androidx.navigation:navigation-ui-ktx:2.6.0"

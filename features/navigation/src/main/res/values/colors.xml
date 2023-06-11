@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="menu_color">#A5A9B2</color>
+    <color name="menu_selected_color">#3364E0</color>
+</resources>

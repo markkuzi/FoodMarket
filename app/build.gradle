@@ -39,6 +39,7 @@ dependencies {
     implementation project(path: ':features:home')
     implementation project(path: ':features:search')
     implementation project(path: ':features:navigation')
+    implementation project(path: ':features:categories')
 
     implementation 'androidx.core:core-ktx:1.8.0'
     implementation 'androidx.appcompat:appcompat:1.6.1'
@@ -50,5 +51,7 @@ dependencies {
 
     implementation "androidx.navigation:navigation-fragment-ktx:2.6.0"
     implementation "androidx.navigation:navigation-ui-ktx:2.6.0"
+
+    implementation 'de.hdodenhof:circleimageview:3.1.0'
 
 }
