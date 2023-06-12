@@ -4,7 +4,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import androidx.core.view.children
-import com.example.home.databinding.PartResultBinding
+import com.example.core.databinding.PartResultBinding
 
 fun BaseFragment.setSimpleViewStatusVisibility(root: ViewGroup, state: ViewState) {
     val binding = PartResultBinding.bind(root)
@@ -13,12 +13,12 @@ fun BaseFragment.setSimpleViewStatusVisibility(root: ViewGroup, state: ViewState
         state = state,
         onSuccess = {
             root.children
-                .filter { it.id != com.example.home.R.id.progressBar && it.id != com.example.home.R.id.errorContainer }
+                .filter { it.id != R.id.progressBar && it.id != R.id.errorContainer }
                 .forEach { it.visibility = View.VISIBLE }
         },
         onError = {
             binding.errorContainer.visibility = View.VISIBLE
-            binding.errorText.text = getString(com.example.home.R.string.error_result)
+            binding.errorText.text = getString(R.string.error_result)
         },
         onLoading = {
             binding.progressBar.visibility = View.VISIBLE
@@ -27,7 +27,7 @@ fun BaseFragment.setSimpleViewStatusVisibility(root: ViewGroup, state: ViewState
 }
 
 fun BaseFragment.onTryAgain(root: View, onTryAgainPressed: () -> Unit) {
-    root.findViewById<Button>(com.example.home.R.id.tryAgainButton).setOnClickListener {
+    root.findViewById<Button>(R.id.tryAgainButton).setOnClickListener {
         onTryAgainPressed()
     }
 }
