@@ -6,7 +6,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.core.ViewState
 import com.example.home.domain.CategoryUseCase
-import com.example.home.domain.entity.ResponseResult
+import com.example.core.ResponseResult
 import kotlinx.coroutines.launch
 
 class HomeViewModel(

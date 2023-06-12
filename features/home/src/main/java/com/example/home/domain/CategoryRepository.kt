@@ -1,7 +1,7 @@
 package com.example.home.domain
 
 import com.example.home.domain.entity.Category
-import com.example.home.domain.entity.ResponseResult
+import com.example.core.ResponseResult
 
 interface CategoryRepository {
 

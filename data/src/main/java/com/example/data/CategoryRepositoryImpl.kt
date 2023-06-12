@@ -3,13 +3,13 @@ package com.example.data
 import com.example.data.network.CategoryService
 import com.example.home.domain.CategoryRepository
 import com.example.home.domain.entity.Category
-import com.example.home.domain.entity.ResponseResult
+import com.example.core.ResponseResult
 
 class CategoryRepositoryImpl(
     private val service: CategoryService
 ): CategoryRepository {
 
-    override suspend fun getCategories(): ResponseResult<List<Category>> {
+    override suspend fun getCategories(): com.example.core.ResponseResult<List<Category>> {
         try {
             val response = service.getCategories()
             val list = response.сategories.map {
@@ -19,10 +19,10 @@ class CategoryRepositoryImpl(
                     imageUrl = it.imageUrl
                 )
             }
-            return ResponseResult.Success(list)
+            return com.example.core.ResponseResult.Success(list)
         }
         catch (e: Exception) {
-            return ResponseResult.Error(e.message)
+            return com.example.core.ResponseResult.Error(e.message)
         }
     }
 }

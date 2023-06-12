@@ -1,4 +1,4 @@
-package com.example.home.domain.entity
+package com.example.core
 
 sealed class ResponseResult<T>(
     val data: T? = null,
