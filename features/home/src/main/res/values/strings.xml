@@ -1,3 +1,5 @@
 <resources>
     <string name="home_fragment">HOME</string>
+    <string name="try_again_button">Попробуй еще раз</string>
+    <string name="error_result">Произошла какая-то ошибка!</string>
 </resources>

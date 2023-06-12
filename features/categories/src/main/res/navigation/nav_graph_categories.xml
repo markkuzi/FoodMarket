@@ -11,6 +11,14 @@
         android:label="fragment_categories"
         tools:layout="@layout/fragment_categories">
 
-        <deepLink app:uri="foodmarket://categories" />
+        <deepLink app:uri="foodmarket://categories/{categoryId}/{categoryName}" />
+
+        <argument
+            android:name="categoryId"
+            app:argType="string" />
+        <argument
+            android:name="categoryName"
+            app:argType="string" />
+
     </fragment>
 </navigation>
