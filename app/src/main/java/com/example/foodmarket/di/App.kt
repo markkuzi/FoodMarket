@@ -1,6 +1,7 @@
 package com.example.foodmarket.di
 
 import android.app.Application
+import com.example.foodmarket.di.modules.categoriesModule
 import com.example.foodmarket.di.modules.dataModule
 import com.example.foodmarket.di.modules.homeModule
 import org.koin.android.ext.koin.androidContext
@@ -16,7 +17,7 @@ class App: Application()  {
         startKoin {
             androidLogger(Level.DEBUG)
             androidContext(this@App)
-            modules(homeModule, dataModule)
+            modules(homeModule, dataModule, categoriesModule)
         }
     }
 }

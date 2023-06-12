@@ -25,7 +25,12 @@ class DishListAdapter() :
         val dish = getItem(position)
 
         with(holder.binding) {
-            Picasso.get().load(dish.imageUrl).into(dishImage)
+            if (dish.imageUrl.isNotBlank()) {
+                Picasso.get().load(dish.imageUrl).into(dishImage)
+            }
+            else
+                Picasso.get().load(dish.description).into(dishImage)
+
             dishName.text = dish.name
 
             root.setOnClickListener {

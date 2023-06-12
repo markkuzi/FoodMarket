@@ -40,8 +40,7 @@ class CategoriesViewModel(
                             price = it.price,
                             weight = it.weight,
                             description = it.description,
-                            imageUrl = it.imageUrl,
-                            tegs = it.tegs,
+                            imageUrl = it.imageUrl
                         )
                     }
                 }

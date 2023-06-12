@@ -8,6 +8,6 @@ data class DishesDto(
     @SerializedName("price") val price: Int,
     @SerializedName("weight") val weight: Int,
     @SerializedName("description") val description: String,
-    @SerializedName("image_url") val imageUrl: String,
+    @SerializedName("image_url") val imageUrl: String?,
     @SerializedName("tegs") val tegs: List<String>
 )
