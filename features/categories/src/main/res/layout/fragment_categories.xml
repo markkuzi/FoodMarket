@@ -3,12 +3,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".CategoriesFragment">
+    tools:context=".presentation.CategoriesFragment">
 
-    <TextView
-        android:id="@+id/text"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvDishes"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/categories_fragment" />
+        android:layout_height="match_parent"/>
+
+    <include layout="@layout/part_result"/>
 
 </FrameLayout>
