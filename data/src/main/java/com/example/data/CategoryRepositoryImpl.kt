@@ -1,15 +1,15 @@
 package com.example.data
 
-import com.example.data.network.CategoryService
+import com.example.data.network.NetworkService
 import com.example.home.domain.CategoryRepository
 import com.example.home.domain.entity.Category
 import com.example.core.ResponseResult
 
 class CategoryRepositoryImpl(
-    private val service: CategoryService
+    private val service: NetworkService
 ): CategoryRepository {
 
-    override suspend fun getCategories(): com.example.core.ResponseResult<List<Category>> {
+    override suspend fun getCategories(): ResponseResult<List<Category>> {
         try {
             val response = service.getCategories()
             val list = response.сategories.map {
@@ -19,10 +19,10 @@ class CategoryRepositoryImpl(
                     imageUrl = it.imageUrl
                 )
             }
-            return com.example.core.ResponseResult.Success(list)
+            return ResponseResult.Success(list)
         }
         catch (e: Exception) {
-            return com.example.core.ResponseResult.Error(e.message)
+            return ResponseResult.Error(e.message)
         }
     }
 }

@@ -1,6 +1,6 @@
 package com.example.foodmarket.di.modules
 
-import com.example.data.network.CategoryService
+import com.example.data.network.NetworkService
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -27,6 +27,6 @@ val dataModule = module {
             .build()
     }
 
-    factory<CategoryService>{ get<Retrofit>().create(CategoryService::class.java) }
+    factory<NetworkService>{ get<Retrofit>().create(NetworkService::class.java) }
 
 }
