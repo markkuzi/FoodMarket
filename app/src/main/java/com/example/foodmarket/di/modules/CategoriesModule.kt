@@ -2,6 +2,7 @@ package com.example.foodmarket.di.modules
 
 import com.example.categories.domain.DishesRepository
 import com.example.categories.domain.DishesUseCase
+import com.example.categories.domain.InsertBasketUseCase
 import com.example.categories.presentation.CategoriesViewModel
 import com.example.data.CategoryRepositoryImpl
 import com.example.data.DishesRepositoryImpl
@@ -14,16 +15,24 @@ import org.koin.dsl.module
 val categoriesModule = module {
 
     single<DishesRepository> {
-        DishesRepositoryImpl(service = get())
+        DishesRepositoryImpl(
+            service = get(),
+            basketDao = get()
+        )
     }
 
     factory<DishesUseCase> {
         DishesUseCase(dishesRepository = get())
     }
 
-    viewModel{
+    factory<InsertBasketUseCase> {
+        InsertBasketUseCase(dishesRepository = get())
+    }
+
+    viewModel {
         CategoriesViewModel(
-            dishesUseCase = get()
+            dishesUseCase = get(),
+            insertBasketUseCase = get()
         )
     }
 

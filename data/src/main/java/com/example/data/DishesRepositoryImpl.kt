@@ -1,14 +1,18 @@
 package com.example.data
 
 import com.example.categories.domain.DishesRepository
+import com.example.categories.domain.entity.BasketDish
 import com.example.categories.domain.entity.Dishes
 import com.example.core.ResponseResult
+import com.example.data.localBd.BasketDao
+import com.example.data.localBd.BasketModel
 import com.example.data.network.NetworkService
 import com.example.home.domain.entity.Category
 
 class DishesRepositoryImpl(
-    private val service: NetworkService
-):DishesRepository {
+    private val service: NetworkService,
+    private val basketDao: BasketDao
+) : DishesRepository {
     override suspend fun getDishes(): ResponseResult<List<Dishes>> {
         try {
             val response = service.getDishes()
@@ -24,10 +28,21 @@ class DishesRepositoryImpl(
                 )
             }
             return ResponseResult.Success(list)
-        }
-        catch (e: Exception) {
+        } catch (e: Exception) {
             return ResponseResult.Error(e.message)
         }
     }
-}
 
+    override suspend fun insertDishToBasket(basketDish: BasketDish) {
+        basketDao.insert(
+            BasketModel(
+                id = basketDish.id,
+                name = basketDish.name,
+                price = basketDish.price,
+                weight = basketDish.weight,
+                image = basketDish.image,
+                count = basketDish.count
+            )
+        )
+    }
+}

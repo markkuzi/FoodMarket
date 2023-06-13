@@ -2,8 +2,9 @@ package com.example.foodmarket.di
 
 import android.app.Application
 import com.example.foodmarket.di.modules.categoriesModule
-import com.example.foodmarket.di.modules.dataModule
+import com.example.foodmarket.di.modules.networkModule
 import com.example.foodmarket.di.modules.homeModule
+import com.example.foodmarket.di.modules.localBdModule
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.ext.koin.androidLogger
 import org.koin.core.context.startKoin
@@ -17,7 +18,7 @@ class App: Application()  {
         startKoin {
             androidLogger(Level.DEBUG)
             androidContext(this@App)
-            modules(homeModule, dataModule, categoriesModule)
+            modules(homeModule, networkModule, categoriesModule, localBdModule)
         }
     }
 }

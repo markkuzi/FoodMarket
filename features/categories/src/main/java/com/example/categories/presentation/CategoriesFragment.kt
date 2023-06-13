@@ -15,6 +15,7 @@ import by.kirich1409.viewbindingdelegate.viewBinding
 import com.example.categories.R
 import com.example.categories.databinding.DishDialogBinding
 import com.example.categories.databinding.FragmentCategoriesBinding
+import com.example.categories.domain.entity.BasketDish
 import com.example.categories.presentation.adapter.chips.ChipListAdapter
 import com.example.categories.presentation.adapter.dishes.DishListAdapter
 import com.example.core.BaseFragment
@@ -42,17 +43,15 @@ class CategoriesFragment : BaseFragment(R.layout.fragment_categories) {
             dishListAdapter.submitList(it)
         }
         dishListAdapter.onDishItemClickListener = {
-
             showDishDialog(it)
         }
-
 
         binding.rvChips.adapter = chipListAdapter
         viewModel.tags.observe(viewLifecycleOwner) {
             chipListAdapter.submitList(it)
         }
         chipListAdapter.onChipItemClickListener = {
-            viewModel.changeTegsSelected(it)
+            viewModel.changeTagsSelected(it)
         }
 
         viewModel.viewState.observe(viewLifecycleOwner) {
@@ -64,7 +63,7 @@ class CategoriesFragment : BaseFragment(R.layout.fragment_categories) {
     }
 
     private fun showDishDialog(dish: DishesUi) {
-        val dialog : Dialog = Dialog(requireContext())
+        val dialog = Dialog(requireContext())
         dialog.setContentView(layoutInflater.inflate(R.layout.dish_dialog, null))
         dialog.window?.setBackgroundDrawableResource(R.drawable.dish_item_background)
         val image: ImageView = dialog.findViewById(R.id.dishImageDialog)
@@ -91,7 +90,16 @@ class CategoriesFragment : BaseFragment(R.layout.fragment_categories) {
         dialog.show()
 
         addToBasket.setOnClickListener {
-            viewModel.getDishes()
+            viewModel.insertDishToBasket(
+                BasketDish(
+                    id = dish.id,
+                    name = dish.name,
+                    price = dish.price,
+                    weight = dish.weight,
+                    image = dish.imageUrl,
+                    count = 1
+                )
+            )
             dialog.hide()
         }
 

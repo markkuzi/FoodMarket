@@ -5,13 +5,16 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.categories.domain.DishesUseCase
+import com.example.categories.domain.InsertBasketUseCase
+import com.example.categories.domain.entity.BasketDish
 import com.example.categories.domain.entity.Dishes
 import com.example.core.ResponseResult
 import com.example.core.ViewState
 import kotlinx.coroutines.launch
 
 class CategoriesViewModel(
-    private val dishesUseCase: DishesUseCase
+    private val dishesUseCase: DishesUseCase,
+    private val insertBasketUseCase: InsertBasketUseCase
 ) : ViewModel() {
 
     private var _allDishes = MutableLiveData<List<DishesUi>>()
@@ -60,11 +63,11 @@ class CategoriesViewModel(
             }.toMutableList()
         }
         _allDishes.value = cacheDishesList
-        getTegsList(cacheDishesList)
+        getTagsList(cacheDishesList)
         _tags.value = tagsList
     }
 
-    private fun getTegsList(dishesUi: List<DishesUi>) {
+    private fun getTagsList(dishesUi: List<DishesUi>) {
         var count = 0
         dishesUi.forEach { dish ->
             val list = dish.tegs.map {
@@ -84,7 +87,7 @@ class CategoriesViewModel(
         }
     }
 
-    fun changeTegsSelected(dishesSortUi: DishesSortUi) {
+    fun changeTagsSelected(dishesSortUi: DishesSortUi) {
         val newList = mutableListOf<DishesSortUi>()
         if (dishesSortUi.isSelected) {
             tagsList.forEach {
@@ -112,5 +115,12 @@ class CategoriesViewModel(
             dish in it.tegs
         }.toMutableList()
         _allDishes.value = newList
+    }
+
+    fun insertDishToBasket(basketDish: BasketDish) {
+        viewModelScope.launch {
+            insertBasketUseCase.insertDishToBasket(basketDish)
+        }
+
     }
 }
