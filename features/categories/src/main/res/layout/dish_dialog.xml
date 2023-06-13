@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/card"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    app:cardCornerRadius="12dp">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="@dimen/big_margin">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/dishImageDialog"
+                android:layout_width="311dp"
+                android:layout_height="232dp"
+                android:background="@drawable/dish_item_background"
+                android:scaleType="fitCenter"
+                android:layout_margin="@dimen/small_margin"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+            
+            <ImageButton
+                android:id="@+id/closeButton"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:background="@drawable/dialog_image_button_background"
+                android:backgroundTint="@color/white"
+                android:src="@drawable/close_button"
+                android:layout_margin="@dimen/normal_margin"
+                app:layout_constraintTop_toTopOf="@id/dishImageDialog"
+                app:layout_constraintEnd_toEndOf="@id/dishImageDialog"/>
+
+            <ImageButton
+                android:id="@+id/favoriteButton"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:background="@drawable/dialog_image_button_background"
+                android:backgroundTint="@color/white"
+                android:src="@drawable/favorite_button"
+                android:layout_margin="@dimen/normal_margin"
+                app:layout_constraintTop_toTopOf="@id/dishImageDialog"
+                app:layout_constraintEnd_toStartOf="@id/closeButton"/>
+
+            <TextView
+                android:id="@+id/dishNameDialog"
+                style="@style/dish_name_dialog"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/small_margin"
+                app:layout_constraintStart_toStartOf="@id/dishImageDialog"
+                app:layout_constraintTop_toBottomOf="@id/dishImageDialog" />
+
+            <TextView
+                android:id="@+id/dishPriceDialog"
+                style="@style/dish_price"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/small_margin"
+                app:layout_constraintStart_toStartOf="@id/dishImageDialog"
+                app:layout_constraintTop_toBottomOf="@id/dishNameDialog" />
+
+            <TextView
+                android:id="@+id/dishWeighDialog"
+                style="@style/dish_weight"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/small_margin"
+                app:layout_constraintStart_toEndOf="@id/dishPriceDialog"
+                app:layout_constraintTop_toBottomOf="@id/dishNameDialog" />
+
+            <TextView
+                android:id="@+id/dishDescriptionDialog"
+                style="@style/dish_description"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/small_margin"
+                app:layout_constraintStart_toStartOf="@id/dishImageDialog"
+                app:layout_constraintEnd_toEndOf="@id/dishImageDialog"
+                app:layout_constraintTop_toBottomOf="@id/dishPriceDialog" />
+
+            <Button
+                android:id="@+id/addToBasketButtonDialog"
+                style="@style/dish_button_dialog"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/large_margin"
+                android:layout_marginBottom="@dimen/large_margin"
+                android:text="@string/add_to_basket"
+                app:layout_constraintStart_toStartOf="@id/dishImageDialog"
+                app:layout_constraintEnd_toEndOf="@id/dishImageDialog"
+                app:layout_constraintTop_toBottomOf="@id/dishDescriptionDialog"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
+
+
+
+</androidx.cardview.widget.CardView>
