@@ -36,6 +36,7 @@ dependencies {
     implementation project(path: ':core')
     implementation project(path: ':features:home')
     implementation project(path: ':features:categories')
+    implementation project(path: ':features:basket')
 
     implementation 'androidx.core:core-ktx:1.8.0'
     implementation 'androidx.appcompat:appcompat:1.6.1'
