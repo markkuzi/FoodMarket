@@ -1,4 +1,4 @@
-package com.example.categories.presentation.adapter
+package com.example.categories.presentation.adapter.dishes
 
 import android.view.LayoutInflater
 import android.view.ViewGroup

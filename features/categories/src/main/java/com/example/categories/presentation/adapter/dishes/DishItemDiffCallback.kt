@@ -1,4 +1,4 @@
-package com.example.categories.presentation.adapter
+package com.example.categories.presentation.adapter.dishes
 
 import androidx.recyclerview.widget.DiffUtil
 import com.example.categories.presentation.DishesUi

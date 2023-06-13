@@ -1,4 +1,4 @@
-package com.example.categories.presentation.adapter
+package com.example.categories.presentation.adapter.dishes
 
 import androidx.recyclerview.widget.RecyclerView
 import com.example.categories.databinding.DishItemBinding
