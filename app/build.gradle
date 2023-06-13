@@ -41,6 +41,7 @@ dependencies {
     implementation project(path: ':features:search')
     implementation project(path: ':features:navigation')
     implementation project(path: ':features:categories')
+    implementation project(path: ':features:toolbar')
 
     implementation 'androidx.core:core-ktx:1.8.0'
     implementation 'androidx.appcompat:appcompat:1.6.1'
@@ -54,6 +55,12 @@ dependencies {
     implementation "androidx.navigation:navigation-ui-ktx:2.6.0"
 
     implementation 'de.hdodenhof:circleimageview:3.1.0'
+
+    def lifecycleVersion = "2.6.1"
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycleVersion"
+    implementation "androidx.lifecycle:lifecycle-runtime-ktx:$lifecycleVersion"
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycleVersion"
+    implementation "androidx.lifecycle:lifecycle-livedata-ktx:$lifecycleVersion"
 
     // koin
     implementation "io.insert-koin:koin-android:3.2.0"
@@ -71,5 +78,8 @@ dependencies {
     //Room
     implementation "androidx.room:room-runtime:2.5.1"
     implementation "androidx.room:room-ktx:2.5.1"
+
+    //Picasso
+    implementation "com.squareup.picasso:picasso:2.8"
 
 }

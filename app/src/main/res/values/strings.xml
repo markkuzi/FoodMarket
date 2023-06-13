@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Food Market</string>
+    <string name="city">Санкт-Петербург</string>
 </resources>

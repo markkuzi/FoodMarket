@@ -3,6 +3,7 @@ package com.example.foodmarket.di.modules
 import com.example.categories.domain.DishesRepository
 import com.example.categories.domain.DishesUseCase
 import com.example.categories.domain.InsertBasketUseCase
+import com.example.categories.domain.SetupToolbarUseCase
 import com.example.categories.presentation.CategoriesViewModel
 import com.example.data.CategoryRepositoryImpl
 import com.example.data.DishesRepositoryImpl
@@ -17,7 +18,8 @@ val categoriesModule = module {
     single<DishesRepository> {
         DishesRepositoryImpl(
             service = get(),
-            basketDao = get()
+            basketDao = get(),
+            setupToolbar = get()
         )
     }
 
@@ -29,10 +31,15 @@ val categoriesModule = module {
         InsertBasketUseCase(dishesRepository = get())
     }
 
+    factory<SetupToolbarUseCase> {
+        SetupToolbarUseCase(dishesRepository = get())
+    }
+
     viewModel {
         CategoriesViewModel(
             dishesUseCase = get(),
-            insertBasketUseCase = get()
+            insertBasketUseCase = get(),
+            setupToolbarUseCase = get()
         )
     }
 

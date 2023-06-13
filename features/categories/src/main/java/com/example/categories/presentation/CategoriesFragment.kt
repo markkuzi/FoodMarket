@@ -1,19 +1,15 @@
 package com.example.categories.presentation
 
 import android.app.Dialog
-import android.graphics.Color
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
 import android.widget.ImageButton
 import android.widget.ImageView
 import android.widget.TextView
-import androidx.core.app.DialogCompat
-import androidx.fragment.app.DialogFragment
 import androidx.recyclerview.widget.GridLayoutManager
 import by.kirich1409.viewbindingdelegate.viewBinding
 import com.example.categories.R
-import com.example.categories.databinding.DishDialogBinding
 import com.example.categories.databinding.FragmentCategoriesBinding
 import com.example.categories.domain.entity.BasketDish
 import com.example.categories.presentation.adapter.chips.ChipListAdapter
@@ -21,6 +17,7 @@ import com.example.categories.presentation.adapter.dishes.DishListAdapter
 import com.example.core.BaseFragment
 import com.example.core.onTryAgain
 import com.example.core.setSimpleViewStatusVisibility
+import com.example.toolbar.domain.entity.ToolbarSettings
 import com.squareup.picasso.Picasso
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
@@ -31,11 +28,18 @@ class CategoriesFragment : BaseFragment(R.layout.fragment_categories) {
     private val dishListAdapter by lazy { DishListAdapter() }
     private val chipListAdapter by lazy { ChipListAdapter() }
     private val binding by viewBinding(FragmentCategoriesBinding::bind)
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        val id = arguments?.getString(CATEGORY_ID)
+        val name = arguments?.getString(CATEGORY_NAME)
+        viewModel.setupCategoriesToolbar(ToolbarSettings(name.toString(), true))
+    }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val id = arguments?.getString(CATEGORY_ID)
-        val name = arguments?.getString(CATEGORY_NAME)
+
 
         binding.rvDishes.layoutManager = GridLayoutManager(requireContext(), 3)
         binding.rvDishes.adapter = dishListAdapter
@@ -76,15 +80,18 @@ class CategoriesFragment : BaseFragment(R.layout.fragment_categories) {
 
         if (dish.imageUrl.isNotBlank()) {
             Picasso.get().load(dish.imageUrl).into(image)
-        }
-        else
+        } else
             Picasso.get().load(dish.description).into(image)
         name.text = dish.name
-        price.text = String.format(getString(R.string.price),
-            dish.price.toString())
+        price.text = String.format(
+            getString(R.string.price),
+            dish.price.toString()
+        )
 
-        weight.text = String.format(getString(R.string.weight),
-            dish.weight.toString())
+        weight.text = String.format(
+            getString(R.string.weight),
+            dish.weight.toString()
+        )
 
         description.text = dish.description
         dialog.show()
@@ -107,6 +114,11 @@ class CategoriesFragment : BaseFragment(R.layout.fragment_categories) {
             dialog.hide()
         }
 
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        viewModel.setupCategoriesToolbar(ToolbarSettings("", false))
     }
 
     companion object {

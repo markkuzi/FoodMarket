@@ -6,15 +6,18 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.categories.domain.DishesUseCase
 import com.example.categories.domain.InsertBasketUseCase
+import com.example.categories.domain.SetupToolbarUseCase
 import com.example.categories.domain.entity.BasketDish
 import com.example.categories.domain.entity.Dishes
 import com.example.core.ResponseResult
 import com.example.core.ViewState
+import com.example.toolbar.domain.entity.ToolbarSettings
 import kotlinx.coroutines.launch
 
 class CategoriesViewModel(
     private val dishesUseCase: DishesUseCase,
-    private val insertBasketUseCase: InsertBasketUseCase
+    private val insertBasketUseCase: InsertBasketUseCase,
+    private val setupToolbarUseCase: SetupToolbarUseCase
 ) : ViewModel() {
 
     private var _allDishes = MutableLiveData<List<DishesUi>>()
@@ -122,5 +125,11 @@ class CategoriesViewModel(
             insertBasketUseCase.insertDishToBasket(basketDish)
         }
 
+    }
+
+    fun setupCategoriesToolbar(toolbarSettings: ToolbarSettings) {
+        viewModelScope.launch {
+            setupToolbarUseCase.setupToolbar(toolbarSettings)
+        }
     }
 }

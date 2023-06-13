@@ -7,11 +7,14 @@ import com.example.core.ResponseResult
 import com.example.data.localBd.BasketDao
 import com.example.data.localBd.BasketModel
 import com.example.data.network.NetworkService
+import com.example.data.toolbar.SetupToolbar
 import com.example.home.domain.entity.Category
+import com.example.toolbar.domain.entity.ToolbarSettings
 
 class DishesRepositoryImpl(
     private val service: NetworkService,
-    private val basketDao: BasketDao
+    private val basketDao: BasketDao,
+    private val setupToolbar: SetupToolbar
 ) : DishesRepository {
     override suspend fun getDishes(): ResponseResult<List<Dishes>> {
         try {
@@ -44,5 +47,9 @@ class DishesRepositoryImpl(
                 count = basketDish.count
             )
         )
+    }
+
+    override suspend fun setupToolbar(toolbarSettings: ToolbarSettings) {
+        setupToolbar.setupToolbar(toolbarSettings)
     }
 }
