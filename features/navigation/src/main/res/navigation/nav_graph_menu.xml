@@ -18,7 +18,7 @@
         android:label="AccountFragment" />
     <fragment
         android:id="@+id/basketFragment"
-        android:name="com.example.basket.BasketFragment"
+        android:name="com.example.basket.presentation.BasketFragment"
         android:label="BasketFragment" />
     <include app:graph="@navigation/nav_graph_categories" />
 </navigation>

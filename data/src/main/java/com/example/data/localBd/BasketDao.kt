@@ -19,8 +19,8 @@ interface BasketDao {
     @Query("SELECT * FROM basket_data_table")
     fun getBasket(): Flow<List<BasketModel>>
 
-    @Query("DELETE FROM basket_data_table WHERE basket_id = :idProductToBasket")
-    suspend fun deleteProductFromBasket(idProductToBasket:Int)
+    @Query("DELETE FROM basket_data_table WHERE basket_id = :idBasketDish")
+    suspend fun deleteDishFromBasket(idBasketDish:Int)
 
     @Query("DELETE FROM basket_data_table")
     suspend fun clear()

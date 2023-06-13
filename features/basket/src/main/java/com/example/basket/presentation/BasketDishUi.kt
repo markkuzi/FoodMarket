@@ -1,4 +1,4 @@
-package com.example.basket
+package com.example.basket.presentation
 
 data class BasketDishUi(
     val id: Int,

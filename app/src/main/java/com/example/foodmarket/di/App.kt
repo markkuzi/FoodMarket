@@ -1,6 +1,7 @@
 package com.example.foodmarket.di
 
 import android.app.Application
+import com.example.foodmarket.di.modules.basketModule
 import com.example.foodmarket.di.modules.categoriesModule
 import com.example.foodmarket.di.modules.networkModule
 import com.example.foodmarket.di.modules.homeModule
@@ -18,7 +19,7 @@ class App: Application()  {
         startKoin {
             androidLogger(Level.DEBUG)
             androidContext(this@App)
-            modules(homeModule, networkModule, categoriesModule, localBdModule)
+            modules(homeModule, networkModule, categoriesModule, localBdModule, basketModule)
         }
     }
 }
