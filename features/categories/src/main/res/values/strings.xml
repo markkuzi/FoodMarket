@@ -1,0 +1,8 @@
+<resources>
+    <string name="categories_fragment">Categories</string>
+    <string name="try_again_button">Попробуй еще раз</string>
+    <string name="error_result">Произошла какая-то ошибка!</string>
+    <string name="add_to_basket">Добавить в корзину</string>
+    <string name="price">%s ₽</string>
+    <string name="weight">· %sг</string>
+</resources>

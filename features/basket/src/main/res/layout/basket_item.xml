@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="4dp">
+
+    <ImageView
+        android:id="@+id/dishBasketImage"
+        android:layout_width="62dp"
+        android:layout_height="62dp"
+        android:background="@drawable/basket_item_background"
+        android:scaleType="fitCenter"
+        android:layout_margin="@dimen/small_margin"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/dishBasketName"
+        style="@style/dish_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/normal_margin"
+        app:layout_constraintStart_toEndOf="@id/dishBasketImage"
+        app:layout_constraintTop_toTopOf="@id/dishBasketImage" />
+
+    <TextView
+        android:id="@+id/dishBasketPrice"
+        style="@style/dish_price"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="@id/dishBasketName"
+        app:layout_constraintTop_toBottomOf="@id/dishBasketName" />
+
+    <TextView
+        android:id="@+id/dishBasketWeigh"
+        style="@style/dish_weight"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/small_margin"
+        app:layout_constraintStart_toEndOf="@id/dishBasketPrice"
+        app:layout_constraintTop_toBottomOf="@id/dishBasketName" />
+
+    <ImageView
+        android:id="@+id/dishCountBackground"
+        android:layout_width="99dp"
+        android:layout_height="32dp"
+        android:background="@drawable/basket_item_background"
+        app:layout_constraintBottom_toBottomOf="@id/dishBasketImage"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/dishBasketImage" />
+
+    <TextView
+        android:id="@+id/dishBasketCount"
+        style="@style/dish_price"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/small_margin"
+        app:layout_constraintStart_toEndOf="@id/dishCountDown"
+        app:layout_constraintEnd_toStartOf="@id/dishCountUp"
+        app:layout_constraintTop_toTopOf="@id/dishCountBackground"
+        app:layout_constraintBottom_toBottomOf="@id/dishCountBackground"/>
+
+    <ImageButton
+        android:id="@+id/dishCountDown"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:backgroundTint="@color/white"
+        android:src="@drawable/cont_down"
+        android:layout_margin="@dimen/small_margin"
+        app:layout_constraintBottom_toBottomOf="@id/dishCountBackground"
+        app:layout_constraintStart_toStartOf="@id/dishCountBackground"
+        app:layout_constraintTop_toTopOf="@id/dishCountBackground" />
+
+    <ImageButton
+        android:id="@+id/dishCountUp"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:backgroundTint="@color/white"
+        android:src="@drawable/count_up"
+        app:layout_constraintBottom_toBottomOf="@id/dishCountBackground"
+        app:layout_constraintEnd_toEndOf="@id/dishCountBackground"
+        app:layout_constraintTop_toTopOf="@id/dishCountBackground" />
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

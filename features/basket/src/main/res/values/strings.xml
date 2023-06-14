@@ -1,0 +1,7 @@
+<resources>
+
+    <string name="basket">BASKET</string>
+    <string name="pay_button">Оплатить %s Р</string>
+    <string name="price">%s ₽</string>
+    <string name="weight">· %sг</string>
+</resources>

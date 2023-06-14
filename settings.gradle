@@ -14,3 +14,12 @@ dependencyResolutionManagement {
 }
 rootProject.name = "Food Market"
 include ':app'
+include ':features:home'
+include ':features:search'
+include ':features:basket'
+include ':features:account'
+include ':features:navigation'
+include ':data'
+include ':features:categories'
+include ':core'
+include ':features:toolbar'
